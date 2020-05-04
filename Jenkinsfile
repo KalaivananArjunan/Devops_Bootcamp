@@ -31,5 +31,9 @@ node{
        sh 'docker-compose up -d'
 
     }
-    
+    stage('Container execution') {
+
+        sh 'docker run -d -p 8888:8888 test-img'
+
+    }
 }
