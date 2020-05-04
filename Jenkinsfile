@@ -31,9 +31,27 @@ node{
        sh 'docker-compose up -d'
 
     }
-    stage('Container execution') {
+    
+    stage('Docker image push') {
 
-        sh 'docker run -d -p 8888:8888 test-img'
+        withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerHubPwd')]){
+
+            sh "docker login -u kalaivananarjunan -p ${dockerHubPwd}"
+
+        }
+
+        sh 'docker push kalaivananarjunan/devopsbootcamp2020:latest'
 
     }
+    stage('Pull Image') {
+
+        sh 'docker pull kalaivananarjunan/devopsbootcamp2020'
+
+    }
+    stage('Container execution') {
+
+        sh 'docker run -d -p 8881:8881 kalaivananarjunan/devopsbootcamp2020'
+
+    }
+    
 }
