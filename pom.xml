@@ -120,7 +120,20 @@
 
 </properties>
 
-  
+  </properties>
+<profiles>
+  <profile>
+  <id>sonar</id>
+  <activation>
+  <activeByDefault>true</activeByDefault>
+	</activation>
+	<properties>
+	<sonar.host.url>
+	http://18.223.1.143:9000
+	</sonar.host.url>
+	</properties>
+	</profile>
+</profiles>	
 
   
 
