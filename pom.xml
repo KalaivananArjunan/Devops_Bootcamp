@@ -95,15 +95,12 @@
   <artifactId>spring-boot-maven-plugin</artifactId>
   </plugin>
 		    <plugin>
-
-				  	<groupId>org.sonarsource.scanner.maven</groupId>
-
-				  	<artifactId>sonar-maven-plugin</artifactId>
-
-				  	<version>3.7.0.1746</version>
-
-				</plugin>
-		    </plugins>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>3.6.0.1398</version>
+      </plugin>
+		    
+  </plugins>
      
         <finalName>devopsDemo</finalName>
     
@@ -119,20 +116,6 @@
 
 
 </properties>
-
-<profiles>
-  <profile>
-  <id>sonar</id>
-  <activation>
-  <activeByDefault>true</activeByDefault>
-	</activation>
-	<properties>
-	<sonar.host.url>
-	http://18.223.1.143:9000
-	</sonar.host.url>
-	</properties>
-	</profile>
-</profiles>	
 
   
 
