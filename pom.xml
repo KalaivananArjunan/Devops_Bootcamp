@@ -120,7 +120,6 @@
 
 </properties>
 
-  </properties>
 <profiles>
   <profile>
   <id>sonar</id>
