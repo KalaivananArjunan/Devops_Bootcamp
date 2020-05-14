@@ -15,7 +15,7 @@
 
      instance_type : t2.micro
 
-     key_name : ansible-admin
+     key_name : devops_developer_ubuntu
 
      image : ami-07c1207a9d40bc3bd
 
