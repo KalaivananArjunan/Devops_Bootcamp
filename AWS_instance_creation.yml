@@ -1,114 +1,18 @@
 ## Ansible Playbook
 
 
-- name: ec2-launcher
-
-  hosts: localhost
-
-  gather_facts: false
-
-  connection : local
-
-  
-
-  vars:
-
-    region: us-east-2c
-
-    instance_type: t2.micro
-
-    ami: ami-097834fcb3081f51a
-
-    key_name: devops_developer_ubuntu
-
-    env: test
-
-
-
+- name: EC2 Instance Launcher
+  hots: localhost
+  connection: localhost
   tasks:
-
-  - name: Setting up Security/Firewall Group
-
-    ec2_group:
-
-      name: default_linux_ec2
-
-      description: Rules Allowing Traffic on port 22 and 80
-
-      region: us-east-2
-
-      rules:
-
-        - proto: tcp
-
-          from_port: 80
-
-          to_port: 80
-
-          cidr_ip: 0.0.0.0/0
-
-        - proto: tcp
-
-          from_port: 22
-
-          to_port: 22
-
-          cidr_ip: 0.0.0.0/0
-
-      rules_egress:
-
-        - proto: all
-
-          cidr_ip: 0.0.0.0/0
-
-
-
-  - name: launching AWS EC2 instance using Ansible
-
-    ec2 :
-
-      key_name: devops_developer_ubuntu
-
-      instance_type: t2.micro
-
-      image: ami-097834fcb3081f51a
-
-      region: us-east-2
-
-      wait: yes
-
-      wait_timeout: 500
-
-      group: default_linux_ec2
-
-      instance_tags:
-
-        name: Devops_CICD
-
-        owner: Kalaivanan
-
-        env: "{{ env }}"
-
-      monitoring: no
-
-      vpc_subnet_id: subnet-0dc43741
-
-      assign_public_ip: yes
-
-      exact_count: 1
-
-      count_tag:
-
-        name: Devops_CICD
-
-        env: "{{ env }}"
-
-        owner: Kalaivanan
-
-    register: ec2_out
-
-
-
-  - name: Wait for SSH to come up
-
-    wait_for: host="{{ ec2_out.tagged_instances[0].public_dns_name }}" port=22 delay=10  timeout=300
+  - name: Launching EC2
+    ec2:
+	  instanct_type: t2.micro
+	  key_name: devops_developer_ubuntu
+	  image: ami-07c1207a9d40bc3bd
+	  region: us-east-2c
+	  group: default
+	  cound: 1
+	  vpc_subnet_id: subnet-6d59c221
+	  wait: yes
+	  assign_public_ip: yes
