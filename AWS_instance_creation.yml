@@ -19,7 +19,7 @@
 
     ami: ami-097834fcb3081f51a
 
-    key_name: ansible-ec2-key
+    key_name: devops_developer_ubuntu
 
     env: test
 
@@ -67,7 +67,7 @@
 
     ec2 :
 
-      key_name: ansible-ec2-key
+      key_name: devops_developer_ubuntu
 
       instance_type: t2.micro
 
