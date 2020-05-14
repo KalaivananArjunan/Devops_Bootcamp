@@ -3,6 +3,8 @@
 
   hosts : localhost
 
+  become: false
+  
   connection : local
 
   tasks :
