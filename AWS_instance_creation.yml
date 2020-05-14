@@ -2,8 +2,6 @@
 - name : ec2-launcher
 
   hosts : localhost
-  
-  become : yes
 
   connection : local
 
