@@ -21,7 +21,7 @@
 
      region : us-east-2
 
-     group : sg-09cba8e12824141af
+     group : default
 
      count : 1
 
