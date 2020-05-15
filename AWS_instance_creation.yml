@@ -55,7 +55,7 @@
 
      region : us-east-2
 
-     group : default
+     group : default_linux_ec2
 
      count : 1
 
