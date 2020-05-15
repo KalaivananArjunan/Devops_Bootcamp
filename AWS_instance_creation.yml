@@ -13,7 +13,7 @@
 
     ec2_group:
 
-      name: default_linux_ec2
+      name: default_ec2
 
       description: Rules Allowing Traffic on port 22 and 80
 
@@ -55,7 +55,7 @@
 
      region : us-east-2
 
-     group : default_linux_ec2
+     group : default_ec2
 
      count : 1
 
