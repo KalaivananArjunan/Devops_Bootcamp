@@ -49,7 +49,7 @@
 
      instance_type : t2.micro
 
-     key_name : kalaivanan
+     key_name : devops-key
 
      image : ami-07c1207a9d40bc3bd
 
